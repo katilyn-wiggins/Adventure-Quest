@@ -19,6 +19,8 @@ body {
     
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 main {
@@ -26,8 +28,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 100px;
-    padding-bottom: 100px;
+    margin-bottom: calc(var(--footer-height));
     
 
 }
@@ -42,8 +43,8 @@ section {
     padding-top: var(--gutter);
     padding-bottom: var(--gutter);
     margin-top: var(--gutter);
+    margin-bottom: var(--gutter);
     border: solid 2px var(--color1);
-    margin-bottom: 10px;
 }
 
 header {
@@ -71,6 +72,9 @@ h2 {
     margin-right: 20px;
 }
 
+.main-logo {
+    animation: pulse 5s infinite ease-in-out;
+}
 
 header img {
     height: var(--header-height);
@@ -82,11 +86,16 @@ content {
     width: 80%;
 }
 
+p {
+    margin: var(--gutter);
+    font-weight: bold; 
+}
   
 footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+    height: var(--footer-height);
     display: flex;
     justify-content: flex-end;
     background-color: var(--color3);
@@ -113,6 +122,21 @@ footer {
   }
 
 
-section img { 
-    width: 300px;
+#homepage {
+    font-weight: bold;
+}
+
+
+.questImage {
+    width: 300px
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 50px;
+    text-align: center;
 }

@@ -14,13 +14,6 @@ export function getUserInfo() {
 
         return parsedUserInfo;
     }
-    else {
-        const stringyDefaultUser = JSON.stringify(defaultUserInfo);
-
-        localStorage.setItem(USERINFO, stringyDefaultUser);
-
-        return defaultUserInfo;
-    }
 }
 
 //clears user cart completely

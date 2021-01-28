@@ -126,3 +126,18 @@ footer {
 #homepage {
     font-weight: bold;
 }
+
+
+.questImage {
+    width: 300px
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 50px;
+    text-align: center;
+}
