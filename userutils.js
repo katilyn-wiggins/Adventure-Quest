@@ -32,6 +32,19 @@ export function setUserInfo(user) {
 }
 
 
+export function validateForm() {
+    var name = document.forms.name;
+    var email = document.forms.email;
+    var age = document.forms.age;
+    if (name === '' || email === '' || age === '') {
+        alert('This portion must be filled out completely');
+        return false;
+    }
+    return true;
+}
+
+
+
 // //adds to an existing cart
 // export function addToUserInfo(id, quantity) {
 //     const cart = getCart();

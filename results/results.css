@@ -47,7 +47,6 @@ section {
     border: solid 2px var(--color1);
 }
 
-
 header {
     display: flex;
     flex-direction: row;
@@ -78,11 +77,6 @@ header img {
 
 header span {
     height: var(--header-height);
-}
-
-.title {
-    text-align: center;
-    justify-content: center;
 }
 
 footer {
@@ -154,7 +148,7 @@ footer {
 }
 
 
-.questImage {
+.finalImage {
     width: 300px
 }
 
@@ -164,9 +158,6 @@ form {
 }
 
 button {
-    width: fit-content;
+    width: 50px;
     text-align: center;
 }
-
-
-

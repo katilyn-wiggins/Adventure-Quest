@@ -1,9 +1,12 @@
 // import functions and grab DOM elements
-import { getUserInfo, setUserInfo } from './userutils.js';
+import { getUserInfo, setUserInfo, validateForm } from './userutils.js';
 const form = document.querySelector('form');
+
+const title = document.getElementById('title');
 const USERINFO = 'USER';
 const defaultUserInfo = [];
 // initialize state
+
 
 
 form.addEventListener('submit', (e) => {
@@ -15,10 +18,11 @@ form.addEventListener('submit', (e) => {
         name: formData.get('name'),
         age: formData.get('age'),
         email: formData.get('email'),
-        hp: 10,
-        gold: 10,
+        hp: 5,
+        gold: 5,
         completed: {},
     };
+
 
     getUserInfo();
     setUserInfo(user);

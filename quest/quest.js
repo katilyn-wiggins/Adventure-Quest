@@ -2,21 +2,29 @@ import questData from '../data.js';
 import { getUserInfo, setUserInfo } from '../userutils.js';
 import { findByID } from '../utils.js';
 
-const h1 = document.querySelector('h1');
+const h2 = document.querySelector('h2');
 const p = document.querySelector('p');
 const form = document.querySelector('form');
 const img = document.querySelector('section img');
+const results = document.getElementById('results-span');
+const homeButton = document.getElementById('home');
+const homeIcon = document.getElementById('map-image');
+const topDisplay = document.getElementById('hpAndGoldTop');
 
 
 const searchParams = new URLSearchParams(window.location.search);
 const questId = searchParams.get('id');
-
-
 const quest = findByID(questId, questData);
 
-h1.textContent = quest.title;
+
+const user = JSON.parse(localStorage.getItem('USER'));
+topDisplay.textContent = `HP: ${user.hp} Gold: ${user.gold}`;
+
+
+h2.textContent = quest.title;
 p.textContent = quest.description;
 img.src = `../assets/${quest.image}`;
+homeButton.hidden = true;
 
 
 for (let choice of quest.choices) {
@@ -30,7 +38,7 @@ for (let choice of quest.choices) {
     radio.value = choice.id;
     radio.name = 'choices';
 
-    label.append(span, radio);
+    label.append(radio, span);
 
     form.append(label);
 }
@@ -51,15 +59,30 @@ form.addEventListener('submit', (e) => {
     const choice = findByID(selectionID, quest.choices);
 
     const user = JSON.parse(localStorage.getItem('USER'));
-    console.log(user);
+
+    button.disabled = true;
 
     user.hp += choice.hp;
     user.gold += choice.gold;
+    console.log(user.gold);
 
     user.completed[questId] = true;
 
-    setUserInfo;
+    localStorage.setItem('USER', JSON.stringify(user));
 
+    results.textContent = choice.result;
+
+    homeButton.hidden = false;
+
+});
+
+homeButton.addEventListener('click', () => {
     window.location = '../map';
 
 });
+
+homeIcon.addEventListener('click', () => {
+    window.location = '../map';
+
+});
+//
